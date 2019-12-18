@@ -6,53 +6,56 @@
 int main()
 {
 
-//declaration des variables
+	//declaration des variables
 
-int z=1;
-int lambdanm=600;
-double lambda=0.000000001*lambdanm;
-double As=0.1;
-double xs=0.001;
-int ys=0, zs=0;
-double theta=0.1;
-int N,h;
-double I[N][N];
-double phi0[N][N];   		//phiZERO
-double phiS[N][N];
-double x,y,x1,x2,y1,y2;
-int A=1;
-double r,X,Y,Z;
+	int z=1;
+	int lambdanm=600;
+	double lambda=0.000000001*lambdanm;
+	double As=0.1;
+	double xs=0.001;
+	int ys=0, zs=0;
+	double theta=0.1;
+	int N;
+	double I[N][N];			//Intensité lumineuse
+	double phiO[N][N];   		//phi objet
+	double phiS[N][N];		//phi source
+	double x,y,x1,x2,y1,y2;
+	int A=1;
+	double r,X,Y,Z;
+	double k=2*3.1415926535/lambda;
+	int D=1; 			//distance objet/ecran
+	double h=sqrt(lambda*D);
+	
 
-//initialisation des tableaux
-    
-for (x=0;x<N;x=x+h)			//NB il faudra définir h
-{   for (y=0;y<N;y=y+h)
-    {
-        I[x][y]=0;
-		phi0[x][y]=0;
+	//initialisation des tableaux
+
+	for (x=0;x<N;x=x+h)			//NB il faudra définir h
+	{   for (y=0;y<N;y=y+h)
+	    {
+		I[x][y]=0;
+		phiO[x][y]=0;
 		phiS[x][y]=0;
-    }
-}
+	    }
+	}
 
-//onde de référence phi0
+	//onde de référence phi source
 
 
-//onde objet phiS
+	//onde objet phi objet
 
-for (x=0;x<N;x=x+h)
-{   for (y=0;y<N;y=y+h)
-    {
+	for (x=0;x<N;x=x+h)
+	{   for (y=0;y<N;y=y+h)
+	    {
 		X=(x-xs)*(x-xs);
 		Y=(y-ys)*(y-ys);
-		Z=0;				//Pas de dépendance en z
+		Z=z*z;				//zs nul car aligné sur l'axe
 		r=sqrt(X+Y+Z);
-		phiS[x][y]=As*exp(i*k*r)/r;
-    }
-}	
+		phiO[x][y]=As*exp(i*k*r)/r;
+	    }
+	}	
 
-/*Commentaires pour le moment:
-Comment trouver k (rapport avec lambda je crois)
-Comment faire une exponentielle avec un i
-Définir h de façon judicieuse*/
+	/*Commentaires pour le moment:
+	Comment faire une exponentielle avec un i
+	Définir h de façon judicieuse*/
 
 }
