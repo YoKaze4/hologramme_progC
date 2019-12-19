@@ -9,8 +9,7 @@ int main()
 	//declaration des variables
 
 	int z=1;
-	int lambdanm=600;
-	double lambda=0.000000001*lambdanm;
+	double lambda=0.000000001*600;
 	double As=0.1;
 	double xs=0.001;
 	int ys=0, zs=0;
