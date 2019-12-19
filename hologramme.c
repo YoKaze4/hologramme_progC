@@ -19,6 +19,7 @@ int main()
 	double I[N][N];			//Intensité lumineuse
 	double phiO[N][N];   		//phi objet
 	double phiS[N][N];		//phi source
+	double J[N];			//vecteur I
 	double x,y,x1,x2,y1,y2;
 	int A=1;
 	double r,X,Y,Z;
@@ -57,5 +58,12 @@ int main()
 	/*Commentaires pour le moment:
 	Comment faire une exponentielle avec un i
 	Définir h de façon judicieuse*/
-
+	
+	for (i=0;i<N;i++)			//vectorisation
+		{   for (j=0;j<N;j++)
+		    {
+			k=i*N+j;
+			J[k]=I[i][j];
+		    }
+		}
 }
