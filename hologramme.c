@@ -16,8 +16,10 @@ int main()
 	double theta=0.1;
 	int N;
 	double I[N][N];			//Intensité lumineuse
-	double phiO[N][N];   		//phi objet
-	double phiS[N][N];		//phi source
+	double phiOr[N][N];   		//phi objet
+	double phiOi[N][N]; 
+	double phiSr[N][N];		//phi source
+	double phiSi[N][N];
 	double J[N];			//vecteur I
 	double x,y,x1,x2,y1,y2;
 	int A=1;
@@ -33,8 +35,10 @@ int main()
 	{   for (y=0;y<N;y=y+h)
 	    {
 		I[x][y]=0;
-		phiO[x][y]=0;
-		phiS[x][y]=0;
+		phiOr[x][y]=0;
+		phiOi[x][y]=0;
+		phiSr[x][y]=0;
+		phiSi[x][y]=0;
 	    }
 	}
 
@@ -50,7 +54,7 @@ int main()
 		Y=(y-ys)*(y-ys);
 		Z=z*z;				//zs nul car aligné sur l'axe
 		r=sqrt(X+Y+Z);
-		phiO[x][y]=As*exp(i*k*r)/r;
+		phiO[x][y]=As*exp(i*k*r)/r;	
 	    }
 	}	
 
