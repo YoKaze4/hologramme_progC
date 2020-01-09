@@ -17,7 +17,7 @@ int main()
 	int N;
 	double I[N][N];			//Intensité lumineuse
 	double phiOr[N][N];   		//phi objet
-	double phiOi[N][N]; 
+	double phiOi[N][N]; 		//imaginaire
 	double phiSr[N][N];		//phi source
 	double phiSi[N][N];
 	double J[N];			//vecteur I
